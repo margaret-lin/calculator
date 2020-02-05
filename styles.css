@@ -44,9 +44,8 @@ button:hover {
     cursor: pointer;
 }
 
-.functional-keys {
+.operators {
     background-color: lightgray;
-    /* color: darkgreen; */
     font-weight: 600;
 }
 

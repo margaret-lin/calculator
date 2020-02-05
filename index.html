@@ -8,27 +8,27 @@
     </head>
     <body>
         <div id="calculator-container">
-            <input id="calculator-display" value="0" />
+            <div id="calculator-display">0</div>
             <div id="keypads-containers">
-                <button class="functional-keys">+</button>
-                <button class="functional-keys">-</button>
-                <button class="functional-keys">x</button>
-                <button class="functional-keys">/</button>
+                <button class="operator" data-action="add">+</button>
+                <button class="operator" data-action="subtract">-</button>
+                <button class="operator" data-action="multiply">x</button>
+                <button class="operator" data-action="divide">÷</button>
 
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
+                <button class="number-keys">7</button>
+                <button class="number-keys">8</button>
+                <button class="number-keys">9</button>
 
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
+                <button class="number-keys">4</button>
+                <button class="number-keys">5</button>
+                <button class="number-keys">6</button>
 
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
+                <button class="number-keys">1</button>
+                <button class="number-keys">2</button>
+                <button class="number-keys">3</button>
 
-                <button>0</button>
-                <button>.</button>
+                <button class="number-keys">0</button>
+                <button id="decimal">.</button>
                 <button id="ac-key">AC</button>
 
                 <button id="equal-key">=</button>
