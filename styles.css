@@ -6,6 +6,20 @@
 
 body {
     background: linear-gradient(to left, #d0d6b5, #75b9be);
+    margin-top: 40px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: white;
+    text-shadow: 2px 2px gray;
+}
+
+#calculator-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #calculator-container {
@@ -17,7 +31,6 @@ body {
 
 #calculator-display {
     width: 100%;
-    font-size: 2rem;
     height: 90px;
     border: none;
     background-color: black;
@@ -28,13 +41,13 @@ body {
 }
 
 .previous-operand {
-    font-size: 0.8em;
+    font-size: 1em;
     height: 30px;
     color: tan;
 }
 
 .current-operand {
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 
 #keypads-containers {
@@ -85,4 +98,9 @@ button:hover {
     font-weight: 500;
     grid-row: 2 / 3;
     grid-column: 4 / 5;
+}
+
+h6 {
+    text-align: end;
+    -webkit-margin-before-collapse: separate;
 }

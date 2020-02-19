@@ -54,7 +54,7 @@ class Calculator {
             case '-':
                 computation = prev - current;
                 break;
-            case 'x':
+            case '×':
                 computation = prev * current;
                 break;
             case '÷':
@@ -70,9 +70,12 @@ class Calculator {
     }
 
     updateDisplay() {
-        // set the text
         this.currentOperandTextElement.innerText = this.currentOperand;
-        this.previousOperandTextElement.innerText = this.previousOperand;
+        if (this.operation != null) {
+            this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`;
+        } else {
+            this.previousOperandTextElement.innerText = '';
+        }
     }
 }
 
