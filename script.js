@@ -11,7 +11,9 @@ class Calculator {
         this.operation = undefined; // dont have operation selected
     }
 
-    delete() {}
+    delete() {
+        this.currentOperand = this.currentOperand.toString().slice(0, -1);
+    }
 
     appendNumber(number) {
         // set the condition for period
@@ -22,13 +24,55 @@ class Calculator {
             this.currentOperand.toString() + number.toString();
     }
 
-    chooseOperation(operation) {}
+    chooseOperation(operation) {
+        if (this.currentOperand === '') return;
+        // make the compute when the second operator hits
+        if (this.previousOperand !== '') {
+            this.compute();
+        }
+        // let calculator knows which operator to use
+        this.operation = operation;
 
-    compute() {}
+        // let the previous operand take over
+        this.previousOperand = this.currentOperand;
+        this.currentOperand = '';
+    }
+
+    compute() {
+        let computation;
+        // convert string to numbers
+        const prev = parseFloat(this.previousOperand);
+        const current = parseFloat(this.currentOperand);
+
+        // do nothing when no numbers are displayed
+        if (isNaN(prev) || isNaN(current)) return;
+
+        switch (this.operation) {
+            case '+':
+                computation = prev + current;
+                break;
+            case '-':
+                computation = prev - current;
+                break;
+            case 'x':
+                computation = prev * current;
+                break;
+            case '÷':
+                computation = prev / current;
+                break;
+            default:
+                return;
+        }
+
+        this.currentOperand = computation;
+        this.operation = undefined;
+        this.previousOperand = '';
+    }
 
     updateDisplay() {
         // set the text
         this.currentOperandTextElement.innerText = this.currentOperand;
+        this.previousOperandTextElement.innerText = this.previousOperand;
     }
 }
 
@@ -57,4 +101,27 @@ numberButtons.forEach(button => {
         calculator.appendNumber(button.innerText);
         calculator.updateDisplay();
     });
+});
+
+//select operation buttons
+operationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.innerText);
+        calculator.updateDisplay();
+    });
+});
+
+equalsButton.addEventListener('click', button => {
+    calculator.compute();
+    calculator.updateDisplay();
+});
+
+allClearButton.addEventListener('click', button => {
+    calculator.clear();
+    calculator.updateDisplay();
+});
+
+deleteButton.addEventListener('click', button => {
+    calculator.delete();
+    calculator.updateDisplay();
 });
