@@ -8,30 +8,33 @@
     </head>
     <body>
         <div id="calculator-container">
-            <div id="calculator-display">0</div>
+            <div id="calculator-display">
+                <div class="previous-operand" data-previous-operand></div>
+                <div class="current-operand" data-current-operand></div>
+            </div>
             <div id="keypads-containers">
-                <button class="operator" data-action="add">+</button>
-                <button class="operator" data-action="subtract">-</button>
-                <button class="operator" data-action="multiply">x</button>
-                <button class="operator" data-action="divide">÷</button>
+                <button class="operator" data-operation>+</button>
+                <button class="operator" data-operation>-</button>
+                <button class="operator" data-operation>x</button>
+                <button class="operator" data-operation>÷</button>
 
-                <button class="number-keys">7</button>
-                <button class="number-keys">8</button>
-                <button class="number-keys">9</button>
+                <button class="number-keys" data-number>7</button>
+                <button class="number-keys" data-number>8</button>
+                <button class="number-keys" data-number>9</button>
 
-                <button class="number-keys">4</button>
-                <button class="number-keys">5</button>
-                <button class="number-keys">6</button>
+                <button class="number-keys" data-number>4</button>
+                <button class="number-keys" data-number>5</button>
+                <button class="number-keys" data-number>6</button>
 
-                <button class="number-keys">1</button>
-                <button class="number-keys">2</button>
-                <button class="number-keys">3</button>
+                <button class="number-keys" data-number>1</button>
+                <button class="number-keys" data-number>2</button>
+                <button class="number-keys" data-number>3</button>
 
-                <button class="number-keys">0</button>
-                <button id="decimal">.</button>
-                <button id="ac-key">AC</button>
-
-                <button id="equal-key">=</button>
+                <button class="number-keys" data-number>0</button>
+                <button id="decimal" data-number>.</button>
+                <button id="ac-key" data-all-clear>AC</button>
+                <button id="delete-key" data-delete>DEL</button>
+                <button id="equal-key" data-equal>=</button>
             </div>
         </div>
 
