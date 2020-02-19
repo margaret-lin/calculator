@@ -8,7 +8,7 @@ class Calculator {
     clear() {
         this.currentOperand = '';
         this.previousOperand = '';
-        this.operation = undefined; // dont have operation selected
+        this.operation = undefined;
     }
 
     delete() {
@@ -16,35 +16,28 @@ class Calculator {
     }
 
     appendNumber(number) {
-        // set the condition for period
         if (number === '.' && this.currentOperand.includes('.')) return;
 
-        // convert to string so JS can append the number instead of doing operation
         this.currentOperand =
             this.currentOperand.toString() + number.toString();
     }
 
     chooseOperation(operation) {
         if (this.currentOperand === '') return;
-        // make the compute when the second operator hits
         if (this.previousOperand !== '') {
             this.compute();
         }
-        // let calculator knows which operator to use
         this.operation = operation;
 
-        // let the previous operand take over
         this.previousOperand = this.currentOperand;
         this.currentOperand = '';
     }
 
     compute() {
         let computation;
-        // convert string to numbers
         const prev = parseFloat(this.previousOperand);
         const current = parseFloat(this.currentOperand);
 
-        // do nothing when no numbers are displayed
         if (isNaN(prev) || isNaN(current)) return;
 
         switch (this.operation) {
@@ -91,14 +84,11 @@ const currentOperandTextElement = document.querySelector(
     '[data-current-operand]'
 );
 
-// define class
 const calculator = new Calculator(
     previousOperandTextElement,
     currentOperandTextElement
 );
 
-// select number buttons
-// loop all over different buttons
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText);
@@ -106,7 +96,6 @@ numberButtons.forEach(button => {
     });
 });
 
-//select operation buttons
 operationButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.chooseOperation(button.innerText);
