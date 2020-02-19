@@ -81,6 +81,7 @@ button:hover {
     background-color: firebrick;
     color: white;
     font-weight: 600;
+    text-align: center;
 }
 
 #equal-key {
@@ -95,12 +96,14 @@ button:hover {
 #delete-key {
     background-color: teal;
     color: white;
-    font-weight: 500;
+    font-weight: 600;
     grid-row: 2 / 3;
     grid-column: 4 / 5;
+    text-align: center;
 }
 
 h6 {
     text-align: end;
     -webkit-margin-before-collapse: separate;
+    margin: 10px;
 }
